@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'messages/index'
+
+  get 'scores/index'
+
+  get 'games/index'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   root 'welcome#index'
 
