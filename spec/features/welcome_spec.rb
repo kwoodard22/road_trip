@@ -1,3 +1,5 @@
+#to test rspec, run in terminal from root folder ("road trip"): rspec
+
 require 'rails_helper'
 require 'spec_helper'
 
