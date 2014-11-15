@@ -4,3 +4,9 @@
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %><br />
 
 <%= link_to "Leader Board", scores_index_path %>
+
+<ul>
+<%= @states.each do |state| %>
+  <li><%= state.capital  %> is the capital of <%= state.state  %></li>
+<% end %>
+</ul>

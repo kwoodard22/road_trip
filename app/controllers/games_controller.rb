@@ -1,9 +1,8 @@
 class GamesController < ApplicationController
+
   def index
+    @states = Game.all
   end
 
-# def game
-#   @states = Game.all
-# end
 
 end
