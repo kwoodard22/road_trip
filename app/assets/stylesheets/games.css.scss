@@ -1,12 +1,28 @@
 #car {
  height: 100px;
  width: 150px;
- position: relative
+ position: relative;
 }
 
 #question_box {
   height: 200px;
   width: 200px;
-  background: blue
+  background: blue;
+  position: relative;
+  margin: 0 auto;
 }
+
+.question_container {
+  height: 330px;
+}
+
+.car_route {
+  height: 100px;
+}
+
+.image_container {
+  background-color: yellow;
+  opacity: 1;
+}
+
 

@@ -1,14 +1,21 @@
 <h1>Games#index</h1>
+<div class="image_container">
 
-<div id="question_box">
-  <button id="correct_answer">Correct Answer</button><!-- button to move car once correct answer is selected -->
+  <div class="question_container">
+    <div id="question_box" hidden>
+      <button id="correct_answer">Correct Answer</button><!-- button to move car once correct answer is selected -->
+    </div>
+  </div>
+
+  <div class="car_route">
+    <%= image_tag "Truckster.jpg", id: "car" %><br/>
+  </div>
+
 </div>
-
-<%= image_tag "Truckster.jpg", :id => "car" %><br/>
 
 <button id="start_button">Start Trip</button><br/><!--Button to move car to middle of screen-->
 
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %><br/>
+<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 
 <%= link_to "Leader Board", scores_index_path %>
 
