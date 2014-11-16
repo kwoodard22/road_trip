@@ -1,6 +1,18 @@
 
 $(document).ready(function () {
     $('#start_button').click(function() {
-        $('#car').animate({left: '+=600px'}, 3000);
+        carToCenter();
+    });
+
+    $('#correct_answer').click(function() {
+        correctAnswerAdvancement();
     });
 });
+
+var carToCenter = function() {
+  $('#car').animate({left: '50%'}, 4000);
+};
+
+var correctAnswerAdvancement = function() {
+  $('#car').animate({left: '100%'}, 4000);
+};
