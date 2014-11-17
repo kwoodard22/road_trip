@@ -1,15 +1,19 @@
 <div class="background_image">
-<h1 class="welcome_title">Road Trip</h1>
 
-<%= link_to "Register", new_user_registration_path %><br />
+  <div class="welcome_container">
+    <h1 class="welcome_title">ROAD TRIP</h1>
+  </div>
 
-<% if current_user %>
-  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %><br />
-<% else %>
-  <%= link_to "Log in", new_user_session_path %><br />
-<% end %>
+  <div class="link_container">
+    <%= link_to "Register", new_user_registration_path, class: 'nav_link' %>
 
-<%= link_to "Play", games_index_path %><br />
+    <% if current_user %>
+      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: 'nav_link' %>
+    <% else %>
+      <%= link_to "Log-In", new_user_session_path, class: 'nav_link' %>
+    <% end %>
 
+    <%= link_to "Play", games_index_path, class: 'nav_link' %>
+  </div>
 
 </div>
