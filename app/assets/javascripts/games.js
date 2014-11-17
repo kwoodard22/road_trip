@@ -1,5 +1,5 @@
 
-$(document).ready(function () {
+function ready() {
     $('#start_button').click(function() {
         carToCenter();
     });
@@ -43,7 +43,7 @@ $(document).ready(function () {
     var continueOn = $('#continueOn')
     var points = 4;
     var guess;
-    
+
     var changeToNextQuestion = function() {
       // need to produce next question - how to get array to go to next state
     };
@@ -78,8 +78,8 @@ $(document).ready(function () {
       responseToGuess.text('Nope. It\'s not ' + option3.text() + '.').delay( 800 ).fadeIn( 1000 );
       if (points != 0) { points--; };
     })
+}
 
-
-});
-
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
