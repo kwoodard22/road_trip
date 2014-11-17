@@ -2,10 +2,11 @@
 function ready() {
     $('#start_button').click(function() {
         carToCenter();
+        $('#start_button').hide();
     });
 
     var carToCenter = function() {
-    $('#car').animate({left: '580px'}, 2000, function() {
+    $('#car').animate({left: '42%'}, 2000, function() {
        questionAppear();
       });
     };
