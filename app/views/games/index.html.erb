@@ -3,7 +3,24 @@
 
   <div class="question_container">
     <div id="question_box" hidden>
-      <button id="correct_answer">Correct Answer</button><!-- button to move car once correct answer is selected -->
+<!--       <button id="correct_answer">Correct Answer</button>
+ -->
+      <h2><%= list_capital_question(@state) %></h2>
+      <% num = 1 %>
+      <% display_answer_options(@capital).each do |x| %>
+        <% if x == @capital %>
+          <button class="answer"><%= x %></button>
+        <% else %>
+          <button class=<%= "option" + num.to_s %>><%= x %></button>
+          <% num += 1 %>
+        <% end %>
+      <% end %>
+
+      <p id="responseToGuess"></p>
+      <p id="pointsEarned"></p>
+      <button id="continueOn" hidden>Continue</button>
+
+
     </div>
   </div>
 
