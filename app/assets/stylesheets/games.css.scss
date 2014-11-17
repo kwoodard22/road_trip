@@ -1,3 +1,28 @@
-// Place all the styles related to the games controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#car {
+ height: 100px;
+ width: 150px;
+ position: relative;
+}
+
+#question_box {
+  height: 200px;
+  width: 200px;
+  background: blue;
+  position: relative;
+  margin: 0 auto;
+}
+
+.question_container {
+  height: 330px;
+}
+
+.car_route {
+  height: 100px;
+}
+
+.image_container {
+  background-color: yellow;
+  opacity: 1;
+}
+
+
