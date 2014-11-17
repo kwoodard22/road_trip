@@ -1,10 +1,9 @@
-<h1>Games#index</h1>
 <div class="image_container">
+  <h1 class="page_banner banner_content">Roadtrip</h1>
 
   <div class="question_container">
     <div id="question_box" hidden>
-<!--       <button id="correct_answer">Correct Answer</button>
- -->
+
       <h2><%= list_capital_question(@state) %></h2>
       <% num = 1 %>
       <% display_answer_options(@capital).each do |x| %>
@@ -28,11 +27,12 @@
     <%= image_tag "TrucksterTransparent.png", id: "car" %><br/>
   </div>
 
+  <div id="games_footer">
+    <button id="start_button">Start Trip</button><br/><!--Button to move car to middle of screen-->
+    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+    <%= link_to "Leader Board", scores_index_path %>
+  </div>
+
 </div>
 
-<button id="start_button">Start Trip</button><br/><!--Button to move car to middle of screen-->
-
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-
-<%= link_to "Leader Board", scores_index_path %>
 

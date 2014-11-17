@@ -16,7 +16,7 @@ function ready() {
     };
 
     var carToStart = function() {
-      $('#car').animate({left: '-10%'}, 500, function() {
+      $('#car').animate({left: '-15%'}, 100, function() {
         $('#car').show(function() {
           carToCenter();
         });
