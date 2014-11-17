@@ -8,9 +8,9 @@ feature 'welcome page registration' do
   scenario 'welcomes the user & requires sign in, registration or play' do
 
     visit '/'
-    expect(page.find('h1')).to have_content("Road Trip")
+    expect(page.find('h1')).to have_content("ROAD TRIP")
     expect(page).to have_link("Register")
-    expect(page).to have_link("Log in")
+    expect(page).to have_link("Log-In")
     expect(page).to have_link("Play")
   end
 
@@ -23,7 +23,7 @@ feature 'welcome page registration' do
 
   scenario "user clicks on Log in and goes to log in page" do
     visit '/'
-    click_link 'Log in'
+    click_link 'Log-In'
     expect(current_path).to eq(new_user_session_path)
 
   end
