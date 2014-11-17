@@ -17,3 +17,18 @@
 body {
   margin: 0;
 }
+
+.page_banner {
+  background-color: rgba(129,130,129,0.7);
+  text-align:center;
+  margin-top: 140px;
+  height: 100px;
+}
+
+.banner_content {
+  margin: auto;
+  font-family: "Arial Black";
+  font-style: italic;
+  color: #FFCC00;
+  font-size: 70px
+}
