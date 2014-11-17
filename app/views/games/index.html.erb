@@ -32,6 +32,8 @@
 
 <button id="start_button">Start Trip</button><br/><!--Button to move car to middle of screen-->
 
+<%= render 'layouts/signin_status' %>
+
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 
 <%= link_to "Leader Board", scores_index_path %>
