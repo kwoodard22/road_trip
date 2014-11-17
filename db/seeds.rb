@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-require "Nokogiri"
 require "open-uri" #gets HTML from a site
 
 link = open("http://en.wikipedia.org/wiki/List_of_capitals_in_the_United_States")
