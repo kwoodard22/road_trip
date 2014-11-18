@@ -12,11 +12,10 @@
           <% if x == @capital %>
             <button class="answer"><%= x %></button>
           <% else %>
-            <button class=<%= "option" + num.to_s %>><%= x %></button>
+            <button class=<%="option" + num.to_s %>><%= x %></button>
             <% num += 1 %>
           <% end %>
         <% end %>
-
       </div>
 
       <p id="responseToGuess"></p>

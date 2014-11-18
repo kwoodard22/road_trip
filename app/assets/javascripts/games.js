@@ -67,11 +67,15 @@ function ready() {
 
     continueOn.on('click', function() {
       correctAnswerAdvancement();
+      $('.option_selections').hide();
+      $('#responseToGuess').hide();
+      $('#pointsEarned').hide();
+      $('#conintueOn').hide(); // Need this to hide continue button. Always shows
       $.getJSON("/next_state",{stop_num: stopNum},function(data){
         stopNum++;
         $('#question_box h2').text("What is the capital of " + data.state + "?");
-        for (var i = 1; i < data.options.length; i++) {
-          $("<button class=option" + i + ">" + data.options[i].html_class + "</button>")
+        for (var i = 0; i < data.options.length; i++) {
+          $('#question_box').append("<button class=" +  data.options[i].html_class + ">" + data.options[i].capital + "</button>")
         };
         
         // $('.answer').text(data.capital);
