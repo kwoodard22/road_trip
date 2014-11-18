@@ -1,5 +1,6 @@
 
 function ready() {
+    var stopNum = 1;
     $('#start_button').click(function() {
         carToCenter();
         $('#start_button').hide();
@@ -65,6 +66,11 @@ function ready() {
 
     continueOn.on('click', function() {
       correctAnswerAdvancement();
+      $.getJSON("/next_state",{stop_num: stopNum},function(data){
+        stopNum++;
+        $('#question_box h2').text("What is the capital of " + data.state + "?");
+        $('#answer').text(data.capital);
+      })
     })
 
     option1.on('click', function(event) {
