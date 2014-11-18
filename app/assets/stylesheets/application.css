@@ -35,6 +35,10 @@ body {
   text-decoration: none;
 }
 
+a:hover.banner_content {
+  color: #E6E6E6;
+}
+
 .signed_in_notice {
   font-family: "Arial";
   color: rgba(189, 195, 199,1.0);
