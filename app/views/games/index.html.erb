@@ -29,8 +29,8 @@
 
   <div class="footer">
     <button id="start_button">Start Trip</button><br/><!--Button to move car to middle of screen-->
-    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-    <%= link_to "Leader Board", scores_index_path %>
+    <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link' %>
+    <%= link_to "Leader Board", scores_index_path, class: 'game_page_link' %>
     <%= render 'layouts/signin_status' %>
   </div>
 
