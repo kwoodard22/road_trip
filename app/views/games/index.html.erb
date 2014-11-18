@@ -1,4 +1,7 @@
 <div class="image_container">
+
+<div class="page_content_container">
+
   <h1 class="page_banner banner_content">Roadtrip</h1>
 
   <div class="question_container">
@@ -29,11 +32,11 @@
 
   <div class="footer">
     <button id="start_button">Start Trip</button>
-    <%= link_to "Leader Board", scores_index_path, class: 'game_page_link', id: 'leader_board_link' %>
     <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link', id: 'sign_out_link' %>
+    <%= link_to "Leaderboard", scores_index_path, class: 'game_page_link', id: 'leader_board_link' %>
     <%= render 'layouts/signin_status' %>
   </div>
 
-</div>
+</div> <!--image_container closing -->
 
-
+</div> <!--page_content_container closing -->
