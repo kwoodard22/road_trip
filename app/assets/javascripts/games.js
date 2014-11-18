@@ -44,10 +44,11 @@ function ready() {
     var pointsEarned = $('#pointsEarned');
     var continueOn = $('#continueOn')
     var points = 4;
+    var finalScore = 0;
     var guess;
 
-    var changeToNextQuestion = function() {
-      // need to produce next question - how to get array to go to next state
+    var changeAnswerOptions = function(data) {
+      
     };
 
     var pointOrPoints = function() {
@@ -69,20 +70,24 @@ function ready() {
       $.getJSON("/next_state",{stop_num: stopNum},function(data){
         stopNum++;
         $('#question_box h2').text("What is the capital of " + data.state + "?");
-        $('#answer').text(data.capital);
+        for (var i = 1; i < data.options.length; i++) {
+          $("<button class=option" + i + ">" + data.options[i].html_class + "</button>")
+        };
+        
+        // $('.answer').text(data.capital);
       })
     })
 
     option1.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option1.text() + '.').delay( 800 ).fadeIn( 1000 );
+      responseToGuess.text('Nope. It\'s not ' + option1.text() + '.');
       if (points != 0) { points--; };
     })
     option2.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option2.text() + '.').delay( 800 ).fadeIn( 1000 );
+      responseToGuess.text('Nope. It\'s not ' + option2.text() + '.');
       if (points != 0) { points--; };
     })
     option3.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option3.text() + '.').delay( 800 ).fadeIn( 1000 );
+      responseToGuess.text('Nope. It\'s not ' + option3.text() + '.');
       if (points != 0) { points--; };
     })
 }
