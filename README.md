@@ -3,17 +3,17 @@ Road Trip
 
 ### Overview
 
-**Road Trip** is an interactive web application that allows users to test their knowledge of the US States in a race across the country. Users are encouraged to answer questions with percision to increase their score and beat  other competators for leaderboard domination.
+**Road Trip** is an interactive web application that allows users to test their knowledge of the US States in a race across the country. Users are encouraged to answer questions with precision to increase their score and beat  other competitors for leaderboard domination.
 
 **Road Trip** is a Ruby on Rails project completed as part of the September 2014 Web Development Immersive course at General Assembly. It was developed as a group project over a 5 day period by the following developers:
 
-Daniell Bonilla   
+Daniel Bonilla   
 Matthew Molli    
 Paul Turaew    
 Kelsey Woodard
 
 ### Background
-**Road Trip** gamifies the learning process. By adding competative and interactive elements to memorization of basic facts, it aims to increase the user's overall comprehension.  
+**Road Trip** gamifies the learning process. By adding competitive and interactive elements to memorization of basic facts, it aims to increase the user's overall comprehension.  
 
 ### User Stories / Expectations
 *Top Level*
@@ -42,9 +42,10 @@ Kelsey Woodard
     * The correct answer is received; or
     * The user runs out of answer options (multiple choice).
 * At the end of the trip, the user will see his/her score and the overall leaderboard.
+* The leaderboard will display only the top ten registered users' scores in descending order.
 
 ### Visuals
-[Click for Wireframes](https://github.com_______) 
+[Click for Wireframes](https://github.com/kwoodard22/road_trip/tree/master/wireframes) 
 
 [Click for ERD](https://github.com/__________)
 
@@ -59,4 +60,5 @@ Kelsey Woodard
 * Additional gems used:
     * Simplecov;
     * 12_factor;
+    * Nokogiri (for db seeding);
     * Rspec, Capybara, and Jasmine testing
