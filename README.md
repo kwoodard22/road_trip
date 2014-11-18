@@ -47,7 +47,7 @@ Kelsey Woodard
 ### Visuals
 [Click for Wireframes](https://github.com/kwoodard22/road_trip/tree/master/wireframes) 
 
-[Click for ERD](https://github.com/__________)
+[Click for ERD](https://github.com/kwoodard22/road_trip/tree/master/ERD)
 
 
 ### Technologies Used
