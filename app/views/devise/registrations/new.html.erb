@@ -1,4 +1,7 @@
-<h2>Register</h2>
+<h1 class="page_banner banner_content"><%= link_to "ROAD TRIP", root_path, class: 'banner_content' %></h1>
+
+<div class="form_container">
+<h2 class="register_heading">Register</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -32,3 +35,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div> <!-- form container -->

@@ -16,19 +16,40 @@
 
 body {
   margin: 0;
+  background-color: rgba(129,130,129,0.7)
 }
 
 .page_banner {
   background-color: rgba(129,130,129,0.7);
-  text-align:center;
+  text-align: center;
   margin-top: 140px;
   height: 100px;
 }
 
 .banner_content {
-  margin: auto;
+  margin: 0 auto;
   font-family: "Arial Black";
   font-style: italic;
   color: #FFCC00;
-  font-size: 70px
+  font-size: 70px;
+  text-decoration: none;
+}
+
+a:hover.banner_content {
+  color: #E6E6E6;
+}
+
+.signed_in_notice {
+  font-family: "Arial";
+  color: rgba(189, 195, 199,1.0);
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.form_container {
+  background: rgba(46, 204, 113,1.0);
+  width: 250px;
+  margin: 25px auto;
+  padding: 15px;
+  border-radius: 10px;
 }

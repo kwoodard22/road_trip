@@ -1,30 +1,33 @@
-<h1>Leader Board</h1>
-<%= link_to "Play Again", games_index_path %><br />
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %><br />
+<h1 class="page_banner banner_content"><%= link_to "ROAD TRIP", root_path, class: 'banner_content' %></h1>
 
+<div class="leader_board_container">
 
-<table>
-  <thead>
+  <table>
+    <caption class="leader_board_caption">Leader Board</caption>
+    <thead>
 
-    <tr>
-      <th>Score</th>
-      <th>Username</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-
-  </thead>
-
-  <tbody>
-    <% @scores.each do |score| %>
       <tr>
-        <td><%= score.score %></td>
-        <td><%= score.user.username %></td>
-        <td><%= score.created_at %></td>
+        <th>Score</th>
+        <th>Username</th>
+        <th>Date</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
 
+    </thead>
 
-<%= render 'layouts/signin_status' %>
+    <tbody>
+      <% @scores.each do |score| %>
+        <tr>
+          <td><%= score.score %></td>
+          <td><%= score.user.username %></td>
+          <td><%= score.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "Play Again", games_index_path, class: 'leaderboard_page_link', id: 'leaderboard_play_again'%>
+  <% if current_user %>
+    <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'leaderboard_page_link', id: 'leaderboard_signout' %>
+  <% end %>
+  <%= render 'layouts/signin_status' %>
+</div > <!-- "leader_board_container" -->
