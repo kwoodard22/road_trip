@@ -11,6 +11,7 @@
   background-color: #E6E6E6;
   text-align: center;
   height: 48px;
+  margin-bottom: 0;
 }
 
 .nav_link {
@@ -31,4 +32,20 @@ a:visited {
 
 a:hover {
     color: #818281;
+}
+
+.welcome_footer {
+  background-color: rgba(129,130,129,0.7);
+  height: 70px;
+  margin: 0 auto;
+  font-family: "Arial";
+  color: #FFCC00;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.welcome_footer>p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
