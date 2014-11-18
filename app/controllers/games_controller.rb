@@ -2,8 +2,8 @@ class GamesController < ApplicationController
 
   def index
     @all_us_states_info = Game.all
-    state = Game.north_route(0)
-    @capital = Game.where(state:state).first.capital
+    @state = Game.north_route(0)
+    capital = Game.where(state: @state).first.capital
     capitals_array = []
     @all_us_states_info.each {|s| capitals_array << s.capital }
     capitals_array.delete(@capital)
