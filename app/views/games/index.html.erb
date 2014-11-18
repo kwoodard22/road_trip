@@ -4,16 +4,16 @@
   <div class="question_container">
     <div id="question_box" hidden>
 
-      <h2>Question</h2>
+      <h2><%= list_capital_question(@state) %></h2>
       <% num = 1 %>
-
       <% display_answer_options(@capital).each do |x| %>
-        <% if x != @capital %>
+        <% if x == @capital %>
+          <button class="answer"><%= x %></button>
+        <% else %>
           <button class=<%= "option" + num.to_s %>><%= x %></button>
           <% num += 1 %>
         <% end %>
       <% end %>
-      <button class="answer"></button>
 
       <p id="responseToGuess"></p>
       <p id="pointsEarned"></p>
