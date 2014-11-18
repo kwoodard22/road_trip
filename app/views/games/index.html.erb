@@ -32,7 +32,14 @@
 
   <div class="footer">
     <button id="start_button">Start Trip</button>
-    <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link', id: 'sign_out_link' %>
+
+    <% if current_user %>
+      <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link', id: 'leader_board_link' %>
+    <% else %>
+      <%= link_to "Log-In", new_user_session_path, class: 'game_page_link', id: 'leader_board_link' %>
+      <%= link_to "Register", new_user_registration_path, class: 'game_page_link', id: 'register_link' %>
+    <% end %>
+
     <%= link_to "Leaderboard", scores_index_path, class: 'game_page_link', id: 'leader_board_link' %>
     <%= render 'layouts/signin_status' %>
   </div>
