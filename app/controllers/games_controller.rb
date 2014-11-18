@@ -19,13 +19,12 @@ class GamesController < ApplicationController
     Game.all.each {|s| capitals_array << {capital: s.capital, html_class: "option" } }
     capitals_array.delete({capital: capital, html_class: "option" })
     options_array = capitals_array.shuffle.first(3) << {capital: capital, html_class: "answer" }
-    options_array.shuffle # Need to get it to shuffle
     respond_to do |format|
        format.html
        format.json { render json: {
           state: state,
           capital: capital,
-          options: options_array
+          options: options_array.shuffle # Need to get it to shuffle properly
           }}
     end    
   end
