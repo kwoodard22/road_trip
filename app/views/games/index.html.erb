@@ -1,5 +1,4 @@
 <div class="image_container">
-
 <div class="page_content_container">
 
   <h1 class="page_banner banner_content"><%= link_to "ROAD TRIP", root_path, class: 'banner_content' %></h1>
@@ -8,7 +7,7 @@
       <div id="question_box" hidden>
 
         <h2><%= list_capital_question(@state) %></h2>
-        
+
           <div class="jquery_option_selections"></div>
             <div class="option_selections">
               <% num = 1 %>
@@ -42,15 +41,18 @@
 
     <% if current_user %>
       <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link', id: 'leader_board_link' %>
+      <%= link_to "Messages Inbox", user_messages_path(current_user), class: 'game_page_link', id: 'leader_board_link' %>
     <% else %>
       <%= link_to "Log-In", new_user_session_path, class: 'game_page_link', id: 'leader_board_link' %>
       <%= link_to "Register", new_user_registration_path, class: 'game_page_link', id: 'register_link' %>
     <% end %>
 
     <%= link_to "Leaderboard", scores_index_path, class: 'game_page_link', id: 'leader_board_link' %>
-    <%= render 'layouts/signin_status' %>
+    <% if user_signed_in? %>
+      <div class="game_page_signed_in_notice">Currently signed in as: <%= current_user.username %></div>
+    <% end %>
   </div>
 
+</div> <!--page_content_container closing -->
 </div> <!--image_container closing -->
 
-</div> <!--page_content_container closing -->
