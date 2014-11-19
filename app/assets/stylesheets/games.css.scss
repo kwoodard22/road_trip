@@ -6,7 +6,7 @@
 
 #question_box {
   height: 210px;
-  width: 390px;
+  width: 420px;
   padding-top: 10px;
   background: rgba(52, 152, 219, 0.8);
   position: relative;
@@ -28,7 +28,7 @@
 }
 
 .footer {
-  background-color: rgba(52, 73, 94, 0.8);
+  background-color: rgba(52, 73, 94, 0.9);
   height: 80px;
   padding: 10px;
   position: fixed;
@@ -68,15 +68,25 @@
 }
 
 a:link.game_page_link {
-    color: #FFCC00;
+  color: #FFCC00;
 }
 
 a:visited.game_page_link {
-    color: #FFCC00;
+  color: #FFCC00;
 }
 
 a:hover.game_page_link {
-    color: #E6E6E6;
+  color: #E6E6E6;
+}
+
+.game_page_signed_in_notice {
+  font-family: "Arial";
+  color: rgba(211, 84, 0,1.0);
+  font-size: 20px;
+  position: fixed;
+  padding-right: 22px;
+  right: 0;
+  bottom: 20px;
 }
 
 .image_container {

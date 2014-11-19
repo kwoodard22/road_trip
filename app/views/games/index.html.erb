@@ -8,7 +8,7 @@
       <div id="question_box" hidden>
 
         <h2><%= list_capital_question(@state) %></h2>
-        
+
           <div class="jquery_option_selections"></div>
             <div class="option_selections">
               <% num = 1 %>
@@ -43,7 +43,9 @@
     <% end %>
 
     <%= link_to "Leaderboard", scores_index_path, class: 'game_page_link', id: 'leader_board_link' %>
-    <%= render 'layouts/signin_status' %>
+    <% if user_signed_in? %>
+      <div class="game_page_signed_in_notice">Currently signed in as: <%= current_user.username %></div>
+    <% end %>
   </div>
 
 </div> <!--image_container closing -->
