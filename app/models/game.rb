@@ -4,13 +4,13 @@ class Game < ActiveRecord::Base
     ["California", "Arizona", "New Mexico", "Texas", "Oklahoma", "Arkansas", "Tennessee", "North Carolina"][index]
   end
 
-  # def self.check_if_end
-  #   if Game.north_route(params[:stop_num].to_i) == "North Carolina" # should be lenght of .north_route
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
+  def self.check_if_end(param_id)
+    if Game.north_route(param_id) == "North Carolina"
+      true
+    else
+      false
+    end
+  end
 
   def self.create_html_array(capital)
     capitals_array = []

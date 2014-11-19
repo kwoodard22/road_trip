@@ -11,16 +11,17 @@ class GamesController < ApplicationController
   def next_state
     state = Game.north_route(params[:stop_num].to_i)
     capital = Game.where(state: state).first.capital
+    the_end = Game.check_if_end(params[:stop_num].to_i)
     options_array = Game.create_jq_array(state, capital)
     respond_to do |format|
        format.html
        format.json { render json: {
           state: state,
           capital: capital,
-          options: options_array.shuffle 
+          options: options_array.shuffle,
+          the_end: the_end
           }}
     end    
-    # the_end = Game.check_if_end
   end
  
 end
