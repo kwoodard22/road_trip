@@ -1,7 +1,7 @@
 class Game < ActiveRecord::Base
 
   def self.north_route(index)
-    ["California", "Arizona", "North Carolina"][index]
+    ["California", "Arizona", "New Mexico", "Texas", "Oklahoma", "Arkansas", "Mississippi", "Tennessee", "North Carolina"][index]
   end
 
   def self.check_if_end(param_id)
