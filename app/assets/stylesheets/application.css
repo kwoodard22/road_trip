@@ -53,3 +53,8 @@ a:hover.banner_content {
   padding: 15px;
   border-radius: 10px;
 }
+
+.form_heading {
+  font-family: "Arial Black";
+  margin: 0 auto 10px auto;
+}
