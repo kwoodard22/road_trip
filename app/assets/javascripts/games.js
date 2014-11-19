@@ -50,7 +50,7 @@ function ready() {
     var pointsEarned = $('#pointsEarned');
     var continueOn = $('#continueOn');
     var seeFinalScore = $('#finalScore');
-    var points = 4;
+    var points = 400;
     var finalScore = 0;
     var guess;
 
@@ -65,7 +65,7 @@ function ready() {
 
     var addPointsAndReset = function(){
       finalScore += points;
-      points = 4;
+      points = 400;
     };
 
     var addPoints = function() {
@@ -142,7 +142,7 @@ function ready() {
               $('.jquery_option_selections').append(button);
               button.click(function(event) {
                 responseToGuess.text('Nope. It\'s not ' + $(this).text() + '.');
-                if (points !== 0) { points--; }
+                if (points !== 0) { (points -= 100); }
               });
           }
         }
@@ -167,7 +167,7 @@ function ready() {
     
     var incorrect = function(button) {
       responseToGuess.text('Nope. It\'s not ' + $(button).text() + '.');
-      if (points !== 0) { points--; }
+      if (points !== 0) { (points -= 100); }
     };
 
     var correct = function() {
