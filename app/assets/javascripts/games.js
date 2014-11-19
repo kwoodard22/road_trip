@@ -1,5 +1,8 @@
 
 function ready() {
+
+  // ================= CAR FUNCTIONALITY =================
+
     var stopNum = 1;
     $('#start_button').click(function() {
         carToCenter();
@@ -34,9 +37,8 @@ function ready() {
       });
     };
 
-    // Adding question functionality
+  // ================= QUESTION FUNCTIONALITY =================
 
-    // if id == option then wrong guess, but if id == answer, then right
     var answer = $('.answer');
     var responseToGuess = $('#responseToGuess');
     var option = $('.option');
@@ -49,11 +51,6 @@ function ready() {
     var finalScore = 0;
     var guess;
 
-    // var jq_answer = $('.jq_answer');
-    var jq_option0 = $('.jq_option0');
-    var jq_option1 = $('.jq_option1');
-    var jq_option2 = $('.jq_option2');
-    var jq_option3 = $('.jq_option3');
 
     var pointOrPoints = function() {
       if (points == 1) {
@@ -63,33 +60,45 @@ function ready() {
       }
     };
 
+    var addPointsAndReset = function(){
+      finalScore += points;
+      points = 4;
+      alert('Your Total Score: ' + finalScore )
+    };
+
+    var hideAndClearQuestionInfo = function() {
+      $('.option_selections').hide();
+      $('.jquery_option_selections').empty();
+      $('#responseToGuess').empty();
+      $('#pointsEarned').empty();
+    };
+
 
     continueOn.on('click', function() {
       correctAnswerAdvancement();
-      $('.option_selections').hide(); // ???
-      $('.jquery_option_selections').empty(); // GOOD
-      $('#responseToGuess').empty();
-      $('#pointsEarned').empty();
+      hideAndClearQuestionInfo();
+      addPointsAndReset();
       $.getJSON("/next_state",{stop_num: stopNum},function(data){
         stopNum++;
         $('#question_box h2').text("What is the capital of " + data.state + "?");
         for (var i = 0, button; i < data.options.length; i++) {
+
           if (data.options[i].html_class == "answer") {
-            button = $("<button class=" + data.options[i].html_class + " answer>" + data.options[i].capital + "</button>")
+            button = $("<button class=" + data.options[i].html_class + " answer>" + data.options[i].capital + "</button>");
              // $('.jquery_option_selections').append("<button class=" + data.options[i].html_class + " answer>" + data.options[i].capital + "</button>");
              $('.jquery_option_selections').append(button);
              button.click(function(event) {
                 responseToGuess.text('Correct!');
                 pointsEarned.text( 'You earned ' + points + pointOrPoints() + '.');
                 continueOn.show();
-              })
+              });
             } else {
-              button = $("<button class=" + data.options[i].html_class + i + ">" + data.options[i].capital + "</button>")
+              button = $("<button class=" + data.options[i].html_class + i + ">" + data.options[i].capital + "</button>");
               $('.jquery_option_selections').append(button);
               button.click(function(event) {
                 responseToGuess.text('Nope. It\'s not ' + $(this).text() + '.');
                 if (points !== 0) { points--; }
-              })
+              });
           }
         }
       });
@@ -106,54 +115,33 @@ function ready() {
     //     if (points !== 0) { points--; }
     //   }
     // });
-
-// delete all the code!!!
     
+    // Can refactor to to use incorect(), but $(this).text() is coming up BLANK.
+    var incorrect = function(button) {
+      responseToGuess.text('Nope. It\'s not ' + $(button).text() + '.');
+      if (points !== 0) { points--; }
+    };
 
-    $('.jq_answer').click(function() {
-      alert( 'working!');
+    var correct = function() {
       responseToGuess.text('Correct!');
       pointsEarned.text( 'You earned ' + points + pointOrPoints() + '.');
       continueOn.show();
-    });
-    jq_option0.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option.text() + '.');
-      if (points !== 0) { points--; }
-    });
-    jq_option1.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option.text() + '.');
-      if (points !== 0) { points--; }
-    });
-    jq_option2.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option.text() + '.');
-      if (points !== 0) { points--; }
-    });
-    jq_option3.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option.text() + '.');
-      if (points !== 0) { points--; }
-    });
+    };
 
-    // Works with the html class and the jquery div
-    answer.on('click', function(event) {
-      responseToGuess.text('Correct!');
-      pointsEarned.text( 'You earned ' + points + pointOrPoints() + '.');
-      continueOn.show();
+
+    // ==== SPECIFIC TO HTML ====
+
+    answer.on('click', function() {
+      correct();
     });
-    option1.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option1.text() + '.');
-      if (points !== 0) { points--; }
+    option1.on('click', function() {
+      incorrect(this);
     });
-    option1.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option1.text() + '.');
-      if (points !== 0) { points--; }
+    option2.on('click', function() {
+     incorrect(this);
     });
-    option2.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option2.text() + '.');
-      if (points !== 0) { points--; }
-    });
-    option3.on('click', function(event) {
-      responseToGuess.text('Nope. It\'s not ' + option3.text() + '.');
-      if (points !== 0) { points--; }
+    option3.on('click', function() {
+      incorrect(this);
     });
 }
 
