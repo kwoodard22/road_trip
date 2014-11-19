@@ -27,7 +27,7 @@
             <h3 id="finalScoreDisplay"></h3>
             <button id="continueOn" hidden>Continue</button>
             <button id="finalScore" hidden>See Final Score</button>
-            <%= button_to "Leaderboard", scores_index_path, :class => "goToLeaderboard", :method => :get  %>
+            <%= button_to "Leaderboard", scores_path, :class => "goToLeaderboard", :method => :get  %>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
       <%= link_to "Register", new_user_registration_path, class: 'game_page_link', id: 'register_link' %>
     <% end %>
 
-    <%= link_to "Leaderboard", scores_index_path, class: 'game_page_link', id: 'leader_board_link' %>
+    <%= link_to "Leaderboard", scores_path, class: 'game_page_link', id: 'leader_board_link' %>
     <% if user_signed_in? %>
       <div class="game_page_signed_in_notice">Currently signed in as: <%= current_user.username %></div>
     <% end %>

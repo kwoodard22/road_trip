@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/next_state', to: "games#next_state"
   get 'messages/index'
 
-  get 'scores/index'
+  resources 'scores', only: [:create, :index]
 
   get 'games/index'
 
