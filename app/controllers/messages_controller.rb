@@ -1,12 +1,15 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @user = current_user
     @sent_messages = @user.sent_messages
     @received_messages = @user.received_messages
   end
-  
+
   def show
     @message = Message.find(params[:id])
+    @user = current_user
   end
 
   def new
