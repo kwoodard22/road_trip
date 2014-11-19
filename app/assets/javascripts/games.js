@@ -63,7 +63,6 @@ function ready() {
     var addPointsAndReset = function(){
       finalScore += points;
       points = 4;
-      alert('Your Total Score: ' + finalScore )
     };
 
     var hideAndClearQuestionInfo = function() {
