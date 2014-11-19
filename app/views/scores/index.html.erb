@@ -19,7 +19,7 @@
         <tr>
           <td><%= score.score %></td>
           <td><%= score.user.username %></td>
-          <td><%= score.created_at %></td>
+          <td><%= score.created_at.to_formatted_s(:long) %></td>
         </tr>
       <% end %>
     </tbody>
