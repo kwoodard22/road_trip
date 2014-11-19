@@ -17,13 +17,13 @@
   <tbody>
     <% current_user.received_messages.each do |message| %>
     <tr>
-    <td> (<%= current_user.received_messages.count %>) </td> <!-- here should go message sender instead of received_messages.count -->
-    <td><%=  link_to message.title, user_message_path(user_id: message.recipient_id, id: message.id) %></td>
+      <td> <%= message.sender.username %> </td> <!-- here should go message sender instead of received_messages.count -->
+      <td><%=  link_to message.title, user_message_path(user_id: message.recipient_id, id: message.id) %></td>
       <td> <%= message.body %> </td>
-</tr>
-      <% end %>
-    </tbody>
-  </table> </br>
+    </tr>
+    <% end %>
+  </tbody>
+</table> </br>
 <!-- below here is new table for sent messages -->
 <table>
   <caption class="messages_sub_headers">Sent Messages</caption>
@@ -39,17 +39,18 @@
 
   <tbody>
     <% current_user.sent_messages.each do |message| %>
-    <td> (<%= current_user.sent_messages.count %>) </td> <!-- here should go message recipient -->
-    <td><%=  link_to message.title, user_message_path(user_id: message.sender_id, id: message.id) %> </td>
+    <tr>
+      <td> <%= message.recipient.username %> </td> <!-- here should go message recipient -->
+      <td><%=  link_to message.title, user_message_path(user_id: message.sender_id, id: message.id) %> </td>
       <td> <%= message.body %> </td>
-
-      <% end %></th>
-    </tbody>
-  </table>
+    </tr>
+    <% end %></th>
+  </tbody>
+</table>
 
 <div class="message_navigation">
-<%= link_to "Send a Message", new_user_message_path, class: 'game_page_link' %> </br>
-<%= link_to "Back to Play", games_index_path, class: 'game_page_link'%> </br>
-<%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link' %>
+  <%= link_to "Send a Message", new_user_message_path, class: 'game_page_link' %> </br>
+  <%= link_to "Back to Play", games_index_path, class: 'game_page_link'%> </br>
+  <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link' %>
 </div>
 

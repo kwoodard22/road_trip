@@ -3,22 +3,21 @@ class MessagesController < ApplicationController
 
   def index
     @user = current_user
-    @sent_messages = @user.sent_messages
+    @sent_messages = @user.sent_messages.order("message DESC")
     @received_messages = @user.received_messages
   end
 
   def show
     @message = Message.find(params[:id])
-    @user = current_user
   end
 
   def new
     @message = current_user.sent_messages.build
-    @users= User.all
+    @users= current_user.possible_recipients
   end
 
   def create
-    @users = User.all
+    @users = current_user.possible_recipients
     @message = current_user.sent_messages.build(message_params)
     if @message.save
       flash[:success] = "Successfully sent!"
@@ -29,30 +28,31 @@ class MessagesController < ApplicationController
     end
   end
 
-  def edit
-    @message = Message.find(current_user)
-  end
+#additional CRUD actions for possible future messaging features
+  # def edit
+  #   @message = Message.find(current_user)
+  # end
 
-  def update
-    @user = User.find(current_user)
-    @message = Message.update(message_params)
+  # def update
+  #   @user = User.find(current_user)
+  #   @message = Message.update(message_params)
 
-    if @message.save
-      redirect_to user_message_path(user_id: @user.id)
-    else
-      render 'edit'
-    end
-  end
+  #   if @message.save
+  #     redirect_to user_message_path(user_id: @user.id)
+  #   else
+  #     render 'edit'
+  #   end
+  # end
 
-  def destroy
-    @message = Message.find(params[:id]).destroy
-    flash[:success] = "Successfully deleted..."
-    redirect_to user_messages_path(user_id: current_user.id)
-  end
+  # def destroy
+  #   @message = Message.find(params[:id]).destroy
+  #   flash[:success] = "Successfully deleted..."
+  #   redirect_to user_messages_path(user_id: current_user.id)
+  # end
 
    private
 
   def message_params
-    params.require(:message).permit(:recipient_id, :title, :body).merge(sender_id: current_user.id)
+    params.require(:message).permit(:recipient_id, :title, :body)
   end
 end
