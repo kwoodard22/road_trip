@@ -39,6 +39,8 @@ function ready() {
 
   // ================= QUESTION FUNCTIONALITY =================
 
+    $('.goToLeaderboard').hide()
+
     var answer = $('.answer');
     var responseToGuess = $('#responseToGuess');
     var option = $('.option');
@@ -47,6 +49,7 @@ function ready() {
     var option3 = $('.option3');
     var pointsEarned = $('#pointsEarned');
     var continueOn = $('#continueOn');
+    var seeFinalScore = $('#finalScore');
     var points = 4;
     var finalScore = 0;
     var guess;
@@ -63,8 +66,11 @@ function ready() {
     var addPointsAndReset = function(){
       finalScore += points;
       points = 4;
-      alert('Your Total Score: ' + finalScore )
     };
+
+    var addPoints = function() {
+      finalScore += points;
+    }
 
     var hideAndClearQuestionInfo = function() {
       $('.option_selections').hide();
@@ -73,6 +79,22 @@ function ready() {
       $('#pointsEarned').empty();
     };
 
+    var theEnd = function(state) {
+
+      $('#question_box h2').text("Congrats! You made it across the U.S. to " + state + "!");
+      $('#pointsYouHave').text("Your final score is:");
+      $('#finalScoreDisplay').show().text(finalScore);
+    };
+
+    seeFinalScore.on('click', function() {
+      $('#finalScore').hide();
+      $('.goToLeaderboard').show();
+      hideAndClearQuestionInfo();
+      addPoints();
+      $.getJSON("/next_state",{stop_num: stopNum},function(data){
+        theEnd(data.state);
+      });
+    });
 
     continueOn.on('click', function() {
       correctAnswerAdvancement();
@@ -82,7 +104,6 @@ function ready() {
         stopNum++;
         $('#question_box h2').text("What is the capital of " + data.state + "?");
         for (var i = 0, button; i < data.options.length; i++) {
-
           if (data.options[i].html_class == "answer") {
             button = $("<button class=" + data.options[i].html_class + " answer>" + data.options[i].capital + "</button>");
              // $('.jquery_option_selections').append("<button class=" + data.options[i].html_class + " answer>" + data.options[i].capital + "</button>");
@@ -90,7 +111,12 @@ function ready() {
              button.click(function(event) {
                 responseToGuess.text('Correct!');
                 pointsEarned.text( 'You earned ' + points + pointOrPoints() + '.');
-                continueOn.show();
+                if (data.the_end == "true") {
+                  stopNum--;
+                  $('#finalScore').show();
+                } else {
+                  continueOn.show();
+                }
               });
             } else {
               button = $("<button class=" + data.options[i].html_class + i + ">" + data.options[i].capital + "</button>");
@@ -103,7 +129,11 @@ function ready() {
         }
       });
     });
-
+    
+    // if (data.the_end == "true") {
+    //               seeFinalScore.show();
+    //             } else {
+      
     // $('.jquery_option_selections').on('click', option, function() {
     //   if ($( this ).hasClass( "answer" )) {
     //     alert( 'working!');
@@ -116,7 +146,6 @@ function ready() {
     //   }
     // });
     
-    // Can refactor to to use incorect(), but $(this).text() is coming up BLANK.
     var incorrect = function(button) {
       responseToGuess.text('Nope. It\'s not ' + $(button).text() + '.');
       if (points !== 0) { points--; }

@@ -24,7 +24,12 @@
 
             <p id="responseToGuess"></p>
             <p id="pointsEarned"></p>
+            <h3 id="pointsYouHave"></h3>
+            <h3 id="finalScoreDisplay"></h3>
             <button id="continueOn" hidden>Continue</button>
+            <button id="finalScore" hidden>See Final Score</button>
+            <%= button_to "Leaderboard", scores_index_path, :class => "goToLeaderboard", :method => :get  %>
+            </div>
           </div>
         </div>
       </div>
