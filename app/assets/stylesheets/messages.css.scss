@@ -1,3 +1,15 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.message_navigation {
+text-align: center;
+}
+
+.messages_heading {
+font-family: "Arial Black";
+  margin: 0 auto 10px auto;
+  text-align: center;
+}
+
+.messages_sub_headers {
+  font-family: "Arial";
+  font-size: 25px;
+}

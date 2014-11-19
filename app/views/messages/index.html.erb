@@ -1,7 +1,9 @@
-<h1>Messages Inbox</h1>
+<h1 class="page_banner banner_content"><%= link_to "ROAD TRIP", root_path, class: 'banner_content' %></h1>
+
+<h1 class="messages_heading">Messages Inbox</h1>
 
 <table>
-  <caption class="leader_board_caption">Received Messages</caption>
+  <caption class="messages_sub_headers">Received Messages</caption>
   <thead>
 
     <tr>
@@ -14,16 +16,17 @@
 
   <tbody>
     <% current_user.received_messages.each do |message| %>
+    <tr>
     <td> (<%= current_user.received_messages.count %>) </td> <!-- here should go message sender instead of received_messages.count -->
     <td><%=  link_to message.title, user_message_path(user_id: message.recipient_id, id: message.id) %></td>
       <td> <%= message.body %> </td>
-
-      <% end %></th>
+</tr>
+      <% end %>
     </tbody>
-  </table>
+  </table> </br>
 <!-- below here is new table for sent messages -->
 <table>
-  <caption class="leader_board_caption">Sent Messages</caption>
+  <caption class="messages_sub_headers">Sent Messages</caption>
   <thead>
 
     <tr>
@@ -44,7 +47,9 @@
     </tbody>
   </table>
 
+<div class="message_navigation">
 <%= link_to "Send a Message", new_user_message_path, class: 'game_page_link' %> </br>
 <%= link_to "Back to Play", games_index_path, class: 'game_page_link'%> </br>
 <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link' %>
+</div>
 
