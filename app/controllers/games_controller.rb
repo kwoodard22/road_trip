@@ -24,7 +24,7 @@ class GamesController < ApplicationController
        format.json { render json: {
           state: state,
           capital: capital,
-          options: options_array.shuffle # Need to get it to shuffle properly
+          options: options_array.shuffle 
           }}
     end    
   end
