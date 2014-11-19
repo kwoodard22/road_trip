@@ -48,9 +48,15 @@ a:hover.banner_content {
   padding-right: 30px;
 }
 
-/*.leaderboard_logged_in_notice {
+.leaderboard_logged_in_notice {
+  font-family: "Arial";
+  color: rgba(211, 84, 0,1.0);
+  font-size: 20px;
+  margin-top: 8px;
+  text-align: right;
+  padding-right: 30px;
   text-align: center;
-}*/
+}
 
 .form_container {
   background: rgba(46, 204, 113,1.0);
