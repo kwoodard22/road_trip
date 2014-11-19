@@ -91,6 +91,18 @@ function ready() {
       $('.goToLeaderboard').show();
       hideAndClearQuestionInfo();
       addPoints();
+      
+      //save score
+      $.post('/scores', {score: { score: finalScore}}, function() {
+        //on success. noop.  Score is showed in theEnd()
+
+      }, 'json')
+      .fail(function() {
+        // on failure, show error
+        // $('#finalScoreDisplay').show().text(finalScore);
+        console.log( "error saving points" );
+      });
+
       $.getJSON("/next_state",{stop_num: stopNum},function(data){
         theEnd(data.state);
       });
