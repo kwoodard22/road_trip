@@ -28,7 +28,8 @@
 }
 
 .footer {
-  background-color: rgba(52, 73, 94, 0.8);
+  /*background-color: rgba(52, 73, 94, 0.8); navy color */
+  background-color: rgba(129,130,129,0.7);
   height: 80px;
   padding: 10px;
   position: fixed;
@@ -39,8 +40,11 @@
 #start_button {
   background-color: rgba(46, 204, 113,1.0);
   border-radius: 10px;
-  height: 40px;
-  font-family: "Arial Black";
+  height: 80px;
+  width: 140px;
+  font-family: "Arial";
+  font-size: 25px;
+  color: rgba(236, 240, 241,1.0);
   }
 
 #leader_board_link {
@@ -81,7 +85,7 @@ a:hover.game_page_link {
 
 .game_page_signed_in_notice {
   font-family: "Arial";
-  color: rgba(211, 84, 0,1.0);
+  color: rgba(192, 57, 43,1.0);
   font-size: 20px;
   position: fixed;
   padding-right: 22px;
@@ -90,7 +94,7 @@ a:hover.game_page_link {
 }
 
 .page_content_container {
-  background-image: url('http://1.bp.blogspot.com/_GBBOlBjR86M/TCe7EinZHEI/AAAAAAAAAe8/ztUerK0eOQI/s1600/usa_map.gif');
+  background-image: url('http://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg');
   background-size: 100% 100%;
   height: 535px;
 }

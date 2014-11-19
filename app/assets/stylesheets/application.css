@@ -41,7 +41,7 @@ a:hover.banner_content {
 
 .signed_in_notice {
   font-family: "Arial";
-  color: rgba(211, 84, 0,1.0);
+  color: rgba(231, 76, 60,1.0);
   font-size: 20px;
   margin-top: 8px;
   text-align: right;
@@ -50,7 +50,7 @@ a:hover.banner_content {
 
 .leaderboard_logged_in_notice {
   font-family: "Arial";
-  color: rgba(211, 84, 0,1.0);
+  color: rgba(231, 76, 60,1.0);
   font-size: 20px;
   margin-top: 8px;
   text-align: right;
