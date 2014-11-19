@@ -6,9 +6,9 @@ class Game < ActiveRecord::Base
 
   def self.check_if_end(param_id)
     if Game.north_route(param_id) == "North Carolina"
-      true
+      "true"
     else
-      false
+      "false"
     end
   end
 

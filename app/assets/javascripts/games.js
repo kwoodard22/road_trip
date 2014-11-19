@@ -39,6 +39,8 @@ function ready() {
 
   // ================= QUESTION FUNCTIONALITY =================
 
+    $('.goToLeaderboard').hide()
+
     var answer = $('.answer');
     var responseToGuess = $('#responseToGuess');
     var option = $('.option');
@@ -78,15 +80,20 @@ function ready() {
     };
 
     var theEnd = function(state) {
+
       $('#question_box h2').text("Congrats! You made it across the U.S. to " + state + "!");
-      $('#responseToGuess').text("Your final score is:");
-      $('#finalsScore').text(finalScore);
+      $('#pointsYouHave').text("Your final score is:");
+      $('#finalScoreDisplay').show().text(finalScore);
     };
 
     seeFinalScore.on('click', function() {
+      $('#finalScore').hide();
+      $('.goToLeaderboard').show();
       hideAndClearQuestionInfo();
       addPoints();
-      theEnd(data.state);
+      $.getJSON("/next_state",{stop_num: stopNum},function(data){
+        theEnd(data.state);
+      });
     });
 
     continueOn.on('click', function() {
@@ -104,7 +111,12 @@ function ready() {
              button.click(function(event) {
                 responseToGuess.text('Correct!');
                 pointsEarned.text( 'You earned ' + points + pointOrPoints() + '.');
-                continueOn.show();
+                if (data.the_end == "true") {
+                  stopNum--;
+                  $('#finalScore').show();
+                } else {
+                  continueOn.show();
+                }
               });
             } else {
               button = $("<button class=" + data.options[i].html_class + i + ">" + data.options[i].capital + "</button>");
@@ -134,7 +146,6 @@ function ready() {
     //   }
     // });
     
-    // Can refactor to to use incorect(), but $(this).text() is coming up BLANK.
     var incorrect = function(button) {
       responseToGuess.text('Nope. It\'s not ' + $(button).text() + '.');
       if (points !== 0) { points--; }
