@@ -47,6 +47,7 @@ function ready() {
     var option3 = $('.option3');
     var pointsEarned = $('#pointsEarned');
     var continueOn = $('#continueOn');
+    var seeFinalScore = $('#finalScore');
     var points = 4;
     var finalScore = 0;
     var guess;
@@ -65,6 +66,10 @@ function ready() {
       points = 4;
     };
 
+    var addPoints = function() {
+      finalScore += points;
+    }
+
     var hideAndClearQuestionInfo = function() {
       $('.option_selections').hide();
       $('.jquery_option_selections').empty();
@@ -72,6 +77,17 @@ function ready() {
       $('#pointsEarned').empty();
     };
 
+    var theEnd = function(state) {
+      $('#question_box h2').text("Congrats! You made it across the U.S. to " + state + "!");
+      $('#responseToGuess').text("Your final score is:");
+      $('#finalsScore').text(finalScore);
+    };
+
+    seeFinalScore.on('click', function() {
+      hideAndClearQuestionInfo();
+      addPoints();
+      theEnd(data.state);
+    });
 
     continueOn.on('click', function() {
       correctAnswerAdvancement();
@@ -81,7 +97,6 @@ function ready() {
         stopNum++;
         $('#question_box h2').text("What is the capital of " + data.state + "?");
         for (var i = 0, button; i < data.options.length; i++) {
-
           if (data.options[i].html_class == "answer") {
             button = $("<button class=" + data.options[i].html_class + " answer>" + data.options[i].capital + "</button>");
              // $('.jquery_option_selections').append("<button class=" + data.options[i].html_class + " answer>" + data.options[i].capital + "</button>");
@@ -102,7 +117,11 @@ function ready() {
         }
       });
     });
-
+    
+    // if (data.the_end == "true") {
+    //               seeFinalScore.show();
+    //             } else {
+      
     // $('.jquery_option_selections').on('click', option, function() {
     //   if ($( this ).hasClass( "answer" )) {
     //     alert( 'working!');
