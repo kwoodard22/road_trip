@@ -82,9 +82,12 @@ function ready() {
     var theEnd = function(state) {
 
       $('#question_box h2').text("Congrats! You made it across the U.S. to " + state + "!");
-      $('#pointsYouHave').text("Your final score is:");
-      $('#finalScoreDisplay').show().text(finalScore);
     };
+    
+    var showScore = function(score) {
+      $('#pointsYouHave').text("Your final score is:");
+      $('#finalScoreDisplay').show().text(score);
+    }
 
     seeFinalScore.on('click', function() {
       $('#finalScore').hide();
@@ -92,15 +95,19 @@ function ready() {
       hideAndClearQuestionInfo();
       addPoints();
       
-      //save score
+      //TODO: extract saveScore
       $.post('/scores', {score: { score: finalScore}}, function() {
-        //on success. noop.  Score is showed in theEnd()
+        //on success.  Should use showScore, but moved to .always due to workaround)
 
       }, 'json')
       .fail(function() {
         // on failure, show error
         // $('#finalScoreDisplay').show().text(finalScore);
         console.log( "error saving points" );
+      })
+      .always(function() {
+        // WORKAROUND: if not logged in, returns as failure, even though status_code is 200
+        showScore(finalScore);
       });
 
       $.getJSON("/next_state",{stop_num: stopNum},function(data){
