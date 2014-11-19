@@ -8,7 +8,7 @@ class GamesController < ApplicationController
     capitals_array = []
     @all_us_states_info.each {|s| capitals_array << s.capital }
     capitals_array.delete(@capital)
-    @capitals_array = capitals_array.shuffle.first(3) << @capital
+    @capitals_array = capitals_array.shuffle.first(3)
     session[:stop] = 0
   end
 
