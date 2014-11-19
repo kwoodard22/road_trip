@@ -8,7 +8,7 @@
       <div id="question_box" hidden>
 
         <h2><%= list_capital_question(@state) %></h2>
-        
+
           <div class="jquery_option_selections"></div>
             <div class="option_selections">
               <% num = 1 %>
@@ -37,6 +37,7 @@
 
     <% if current_user %>
       <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link', id: 'leader_board_link' %>
+      <%= link_to "Messages Inbox", user_messages_path(current_user), class: 'game_page_link', id: 'leader_board_link' %>
     <% else %>
       <%= link_to "Log-In", new_user_session_path, class: 'game_page_link', id: 'leader_board_link' %>
       <%= link_to "Register", new_user_registration_path, class: 'game_page_link', id: 'register_link' %>

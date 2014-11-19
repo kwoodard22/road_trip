@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :messages
+
   get '/next_state', to: "games#next_state"
   get 'messages/index'
 

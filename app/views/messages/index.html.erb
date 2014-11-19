@@ -6,7 +6,7 @@
   <div class="sent">
     <h3> Sent (<%= current_user.sent_messages.count %>) </h3>
       <% current_user.sent_messages.each do |message| %>
-        <h4><%=  message.title %></h4>
+        <h4><%=  link_to message.title, user_message_path(user_id: message.sender_id, id: message.id) %> </h4>
         <p> <%= message.body %> </p>
        <!--  there was a link that took you to delete through user_message_path but broke the template, showed as NoMethodError-->
 
@@ -21,4 +21,7 @@
     <% end %>
   </div>
   </div>
+  <%= link_to "Send a Message", new_user_message_path, class: 'game_page_link' %> </br>
+  <%= link_to "Back to Play", games_index_path, class: 'game_page_link'%> </br>
+  <%= link_to "Sign-Out", destroy_user_session_path, :method => :delete, class: 'game_page_link' %>
 </section>
