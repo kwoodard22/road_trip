@@ -41,9 +41,21 @@ a:hover.banner_content {
 
 .signed_in_notice {
   font-family: "Arial";
-  color: rgba(189, 195, 199,1.0);
+  color: rgba(211, 84, 0,1.0);
   font-size: 20px;
   margin-top: 8px;
+  text-align: right;
+  padding-right: 30px;
+}
+
+.leaderboard_logged_in_notice {
+  font-family: "Arial";
+  color: rgba(211, 84, 0,1.0);
+  font-size: 20px;
+  margin-top: 8px;
+  text-align: right;
+  padding-right: 30px;
+  text-align: center;
 }
 
 .form_container {
@@ -52,4 +64,9 @@ a:hover.banner_content {
   margin: 25px auto;
   padding: 15px;
   border-radius: 10px;
+}
+
+.form_heading {
+  font-family: "Arial Black";
+  margin: 0 auto 10px auto;
 }
