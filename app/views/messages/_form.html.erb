@@ -10,15 +10,15 @@
     </div>
   <% end %>
  <div>
-<%= f.label 'Choose recipient' %> <br>
+<strong><%= f.label 'Choose recipient' %></strong> <br>
   <%= f.select :recipient_id, @users.collect {|p| [ p.email, p.id ] } %>
-  </div>
+  </div></br>
   <div>
     <%= f.text_field :title, placeholder: 'Enter subject' %>
-  </div>
+  </div></br>
   <div>
     <%= f.text_area :body, placeholder: 'Type message here' %>
-  </div>
+  </div></br>
   <div>
     <%= f.submit 'Send Message' %>
   </div>
